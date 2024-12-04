@@ -14,20 +14,70 @@
             /* 
             double equal tries to convert both values into the same type.            
             */
-           console.log(5 == '5.00'); //true
-           console.log(5 === '5.00'); //false
+        //    console.log(5 == '5.00'); //true
+        //    console.log(5 === '5.00'); //false
 
-           if (true) {
-            console.log('hello')
-           } else {
-            console.log('else')
-           }
+        //    if (true) {
+        //     console.log('hello')
+        //    } else {
+        //     console.log('else')
+        //    }
            
-           if (true) {
-            console.log('hello')
-           } else {
-            console.log('else')
-           }
+        //    if (true) {
+        //     console.log('hello')
+        //    } else {
+        //     console.log('else')
+        //    }
+
+        // const result = true ? 'truthy' : 'falsy' //ilki if ikincisi else
+        // console.log(result)
+
+        // false && console.log('hello');
+
+        // const message = 5 && 'hello';
+        // console.log(message);
+        // const currency = undefined || 'TL';
+        // console.log(currency);
+
+        // let hour = 1;
+        // if (hour <= 12 && hour >=6) {
+        //     console.log('Good Morning!')
+            
+        // }
+        // else if (hour <= 17 && hour >= 13)
+        // {
+        //     console.log('Good Afternoon!')
+
+        // }
+        // else{
+        //     console.log('Good night!')
+        // }
+
+        // let numberR = Math.floor(Math.random()*100);
+        // console.log(numberR);
+
+          const randomNumber = Math.random();
+
+      let result;
+
+    //   if (randomNumber < 0.5) {
+    //     result = 'heads';
+    //   } else {
+    //     result = 'tails';
+    //   }
+    result = randomNumber < 0.5  ? 'heads' : 'tails';    
+
+      const guess = 'heads';
+
+      guess === result ? console.log('You win!') : console.log('You lose!');    
+
+
+    //   if (guess === result) {
+    //     console.log('You win!');
+    //   } else {
+    //     console.log('You lose!');
+    //   }
+
         </script>
     </body>
 </html>
