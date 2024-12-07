@@ -9,49 +9,36 @@
     ">Show Quantity</button>
 
     <button onclick="
-      cartQuantity++;
-      console.log(`Cart quantity: ${cartQuantity}`);
+      updateCartQuantity(1);
     ">Add to Cart</button>
 
     <button onclick="
-      cartQuantity += 2;
-      console.log(`Cart quantity: ${cartQuantity}`);
+      updateCartQuantity(2);
     ">+2</button>
 
     <button onclick="
-      cartQuantity = cartQuantity + 3;
-      console.log(`Cart quantity: ${cartQuantity}`);
+      updateCartQuantity(3);
     ">+3</button>
 
     <button onclick="
-    if (cartQuantity > 6) {
-        console.log('Cart is full!')
-    }else{
-      cartQuantity += 4;
-      console.log(`Cart quantity: ${cartQuantity}`);}
+      updateCartQuantity(4);
     ">+4</button>
 
     <button onclick="
-      cartQuantity += 5;
-      console.log(`Cart quantity: ${cartQuantity}`);
+      updateCartQuantity(5);
     ">+5</button>
 
-    <!-- vvv This code was changed. vvv -->
     <button onclick="
-      cartQuantity--;
-      console.log(`Cart quantity: ${cartQuantity}`);
-      ">Remove from cart</button>
+      updateCartQuantity(-1);
+    ">Remove from cart</button>
 
     <button onclick="
-      cartQuantity -= 2;
-      console.log(`Cart quantity: ${cartQuantity}`);
+      updateCartQuantity(-2);
     ">-2</button>
 
     <button onclick="
-      cartQuantity -= 3;
-      console.log(`Cart quantity: ${cartQuantity}`);
+      updateCartQuantity(-3);
     ">-3</button>
-    <!-- ^^^ This code was changed. ^^^ -->
 
     <button onclick="
       cartQuantity = 0;
@@ -61,6 +48,22 @@
 
     <script>
       let cartQuantity = 0;
+
+      function updateCartQuantity(change) {
+        if (cartQuantity + change > 10) {
+          alert('The cart is full');
+          return;
+        }
+
+        if (cartQuantity + change < 0) {
+          alert('Not enough items in the cart');
+          return;
+        }
+
+        cartQuantity += change;
+        console.log(`Cart quantity: ${cartQuantity}`);
+      }
+
     </script>
   </body>
 </html>

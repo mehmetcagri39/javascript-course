@@ -14,8 +14,7 @@
             console.log(`Cart quantity: ${cartQuantity}`);
             ">Show Quantity</button>
     <button onclick="
-        cartQuantity++;
-        console.log(`Cart quantity: ${cartQuantity}`);
+updateCartQuantity(1);
         ">Add to Cart</button>
     <button onclick="
     cartQuantity += 2;
@@ -30,6 +29,11 @@
 
     <script>
         let cartQuantity = 0;
+
+        function updateCartQuantity(value){
+            cartQuantity += value;
+            console.log(`Cart quantity: ${cartQuantity}`);
+        }
     </script>
 </body>
 
