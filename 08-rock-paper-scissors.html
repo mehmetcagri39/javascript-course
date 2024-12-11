@@ -19,16 +19,31 @@
         ">
           Scissors</button>
           <button
-          onclick="score.wins = 0; score.losses = 0; score.ties = 0;
+          onclick="
+          score.wins = 0;
+          score.losses = 0; 
+          score.ties = 0;
+
+          localStorage.removeItem('score');
+
           alert(`The score has been reset.
 Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`   );">Reset Score</button>
 
         <script>
-          const score = {
-            wins: 0,
-            losses: 0,
-            ties: 0
-          };
+          let score = JSON.parse(localStorage.getItem('score')) || { // getting the saved score from local storage
+              wins: 0,
+              losses: 0,
+              ties: 0
+            }; 
+          
+            //!score is the same with score === null cause null is falsy
+          // if (!score) { 
+          //   score = {
+          //     wins: 0,
+          //     losses: 0,
+          //     ties: 0
+          //   };
+          // }
 
     function playGame(playerMove) {
       const computerMove = pickComputerMove();
@@ -70,6 +85,8 @@ Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`   );">Reset S
       } else if (result === 'Tie.') {
         score.ties += 1;
       }
+
+      localStorage.setItem('score', JSON.stringify(score)); //saving the score to local storage in a string
 
       alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
 Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`              
