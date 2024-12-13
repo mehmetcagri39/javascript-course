@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+           Objects exercise
+        </title>
+        <style>
+        </style>
+    </head>    
+    <body>      
+        <script>
+            let basketball = {
+                name:'basketball',
+                price: 2095
+            };
+            console.log(basketball);
+            basketball.price += 500;
+            console.log(basketball.price);
+            // basketball = {
+            //     name:'basketball',
+            //     price: 2095,
+            //     deliverytime: '3 days'
+            // };
+            //üstekkinin kısayolu:
+            basketball['delivery-time']='3 days';
+            console.log(basketball);
+
+            let product1 = {
+                name: 'soap',
+                price: 250
+            }
+            let product2 = {
+                name: 'dishwasher',
+                price: 2500
+            }
+
+            function comparePrice(product1, product2) {
+                if (product1.price > product2.price) {
+                    return product2;
+                }else
+                    return product1;
+            };            
+
+            console.log(comparePrice(product1, product2));
+
+            let product3 = {
+                name: 'dishwasher',
+                price: 2500
+            }
+            let product4 = {
+                name: 'dishwasher',
+                price: 2500
+            }
+            function isSameProduct(product3, product4) {
+                if (product3 == product4) {
+                    return true;
+                }else
+                return false;
+            }
+            console.log(isSameProduct(product3,product4));
+            
+            
+            let myString = "Good Morning!";
+            let lowerCaseString = myString.toLowerCase();
+
+            console.log(lowerCaseString);
+            
+            let myString1 = "Good Morning!";
+            let repeatString = myString.repeat(3);
+
+            console.log(repeatString);
+
+
+
+        </script> 
+    </body>
+</html>
