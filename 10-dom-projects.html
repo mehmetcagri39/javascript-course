@@ -5,6 +5,11 @@
            DOM Projects
         </title>
         <style>
+
+            body {
+                font-family: arial;
+            }
+
             .subscribe-button {
                 border: none;
                 background-color: black;
@@ -16,12 +21,31 @@
                 font-weight: bold;
                 border-radius: 50px;
                 cursor: pointer;
+                margin-bottom: 30px;
+            }
+            .cost-input {
+                font-size: 15px;
+                /* padding-top: 10px;
+                padding-bottom: 10px;
+                padding-left: 10px;
+                padding-right: 10px; */
+                padding: 10px;
+            }
+
+            .calculate-button {
+                background-color: green;
+                color: white;
+                border: none;
+                padding: 12px 15px;
+                font-size: 15px;
+                cursor: pointer;
             }
 
             .is-subscribed{
                 background-color: rgb(240, 240, 240);
                 color: black;
             }
+
         </style>
     </head>
     
@@ -34,9 +58,9 @@
         Subscribe</button>
         
         <p>Amazon Shipping Calculator</p> 
-        <input class="js-order-cost-input" placeholder="Cost of order" type="text" onkeydown="handleCostKeydown(event)"> 
+        <input class="js-order-cost-input cost-input" placeholder="Cost of order" type="text" onkeydown="handleCostKeydown(event)"> 
         <button onclick="
-        calculateTotal();">Calculate</button>
+        calculateTotal();" class="calculate-button">Calculate</button>
         <!-- //closing tag gerekmezse bu elemente void element denir -->
         <p class="js-total-cost"></p>
 
