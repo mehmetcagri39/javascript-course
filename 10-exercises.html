@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Rock Paper Scissors</title>
+    <style>
+
+        .button{
+            background-color: rgb(255, 216, 20);
+            padding: 5px 50px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+        }        
+
+        .is-toggled{
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="button js-button-1" onclick=" toggle('.js-button-1')
+    "> Music </button>    
+    <button class="button js-button-2" onclick="  toggle('.js-button-2')
+    "> Tech </button>    
+    <button class="button js-button-3" onclick=" toggle('.js-button-3') 
+    "> Games </button>
+  
+<script>
+    // console.log(document.querySelector('.amazon-button').classList.contains('amazon-button'));
+
+ function toggle(selector) {
+     const button = document.querySelector(selector);
+     const openButton = document.querySelector('.is-toggled');
+        if (!button.classList.contains('is-toggled' && openButton)) {
+        button.classList.add('is-toggled');
+        openButton.classList.remove('is-toggled');
+        }
+        else {
+        button.classList.remove('is-toggled')   
+        }
+ }
+
+    
+</script>
+
+</body>
+
+</html>
