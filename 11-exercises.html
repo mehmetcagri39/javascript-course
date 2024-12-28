@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+           exercises
+        </title>
+
+        <style>
+        </style>
+    </head>
+    
+    <body>
+       
+
+        <script>
+
+         const nums = [10, 20, 666, 2323, 30];
+        // console.log(nums);
+        // nums[2] = 99;
+        // console.log(nums);
+
+        // function getLastValue(nums) {
+        //     return nums[nums.length - 1];
+        // }
+        // console.log(getLastValue(nums));
+
+        let firstValue = nums[0];
+        let lastValue = nums[nums.length - 1];
+
+
+        function arraySwap(nums) {
+            
+            nums[nums.length - 1] = firstValue;
+            nums[0] = lastValue;
+
+            return nums;
+        }
+        console.log(arraySwap(nums));
+
+        </script>
+    </body>
+</html>
