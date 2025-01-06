@@ -11,7 +11,10 @@
     
     <body>
        
-
+        <button class="js-button" onclick="
+        displayMessage();
+      ">Add to cart</button>
+      <p class="message-below"></p>
         <script>
             /*
             function greeting() {
@@ -55,16 +58,50 @@
 
             console.log('next line');
             */
-
+/*
             [
                 'make dinner',
                 'wash dishes',
                 'watch youtube'
-            ].forEach(function() {
-                
-            });
+            ].forEach(function(value, index) {
+                if (value === 'wash dishes') {
+                    return;
+                }
+                console.log(index);
+                console.log(value);
+            }); */
 
+            // var add = function () {
+            //     console.log(2+3);
+            // };
 
+            // add();
+            // add();
+
+            // function runTwice(fun) {
+            //     fun();
+            //     fun();
+            // }
+
+            // runTwice(function () {
+            //     console.log('12b');
+            // });
+
+            // runTwice(add);
+            
+            let timeoutId;
+
+            function displayMessage() {
+        const p = document.querySelector('.message-below');
+        p.innerHTML = 'Added';
+
+        clearTimeout(timeoutId);
+
+        timeoutId = setTimeout(function() {
+          p.innerHTML = '';
+        }, 2000); //This way if you clik it again before 2 seconds it resets the timer.
+      }
+            
         </script>
     </body>
 </html>
