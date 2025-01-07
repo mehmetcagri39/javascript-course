@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>
-           Advanced Functions
+        <title class="title-change">
+           App
         </title>
 
         <style>
@@ -11,10 +11,13 @@
     
     <body>
        
-        <button class="js-button" onclick="
+        <!-- <button class="js-button" onclick="
         displayMessage();
       ">Add to cart</button>
-      <p class="message-below"></p>
+      <p class="message-below"></p> -->
+
+      <button class="add-message" onclick="messages = messages + 1">Add</button>
+      <button class="remove-message" onclick="messages = messages - 1">Remove</button>
         <script>
             /*
             function greeting() {
@@ -58,18 +61,18 @@
 
             console.log('next line');
             */
-/*
+
             [
                 'make dinner',
                 'wash dishes',
                 'watch youtube'
-            ].forEach(function(value, index) {
+            ].foreach((value, index) => {
                 if (value === 'wash dishes') {
                     return;
                 }
                 console.log(index);
                 console.log(value);
-            }); */
+            }); 
 
             // var add = function () {
             //     console.log(2+3);
@@ -89,19 +92,48 @@
 
             // runTwice(add);
             
-            let timeoutId;
+            let messages = 2;
 
-            function displayMessage() {
-        const p = document.querySelector('.message-below');
-        p.innerHTML = 'Added';
+            setInterval(function() {
+        if (document.title === 'App' && messages > 0) {
+          document.title =  `${messages} New messages`;
+        } else {
+          document.title = 'App';
+        }
+      }, 1000);
 
-        clearTimeout(timeoutId);
+      const regularFunction = function(param, param2) {
+        console.log('hello');
+        return 5;
+      };
 
-        timeoutId = setTimeout(function() {
-          p.innerHTML = '';
-        }, 2000); //This way if you clik it again before 2 seconds it resets the timer.
-      }
+      const arrowFunction = (param, param2) => {
+        console.log('hello');
+        return 5;
+      };
+      arrowFunction();
+
+      const oneParam = param => {
+        console.log(param + 1);
+      };
+
+      oneParam(2);
+
+      const oneLine = () =>  2 + 3;
+      console.log(oneLine());
+      
+
+      const object2 = {
+        method: () => {
+
+        },
+        method() {
             
+        }
+      };
+
+
+
         </script>
     </body>
 </html>
