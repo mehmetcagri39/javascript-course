@@ -10,15 +10,31 @@
     </head>
     
     <body>
+
+      <button onclick="" class="js-button">Click</button>
        
         <!-- <button class="js-button" onclick="
         displayMessage();
       ">Add to cart</button>
       <p class="message-below"></p> -->
 
-      <button class="add-message" onclick="messages = messages + 1">Add</button>
-      <button class="remove-message" onclick="messages = messages - 1">Remove</button>
+      <!-- <button class="add-message" onclick="messages = messages + 1">Add</button>
+      <button class="remove-message" onclick="messages = messages - 1">Remove</button> -->
         <script>
+          const buttonElement = document.querySelector('.js-button');
+
+          const eventListener = () => {
+            console.log('click');
+          };
+
+          buttonElement.addEventListener('click', eventListener
+          );
+
+          buttonElement.removeEventListener('click', eventListener);
+          
+          buttonElement.addEventListener('click', () => {
+            console.log('click2');
+          });
             /*
             function greeting() {
                 console.log("hello")
@@ -62,6 +78,7 @@
             console.log('next line');
             */
 
+            /*
             [
                 'make dinner',
                 'wash dishes',
@@ -131,6 +148,7 @@
             
         }
       };
+      */
 
 
 
