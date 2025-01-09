@@ -11,7 +11,7 @@
     
     <body>
 
-      <button onclick="" class="js-button">Click</button>
+      <!-- <button onclick="" class="js-button">Click</button> -->
        
         <!-- <button class="js-button" onclick="
         displayMessage();
@@ -21,6 +21,7 @@
       <!-- <button class="add-message" onclick="messages = messages + 1">Add</button>
       <button class="remove-message" onclick="messages = messages - 1">Remove</button> -->
         <script>
+          /*
           const buttonElement = document.querySelector('.js-button');
 
           const eventListener = () => {
@@ -35,6 +36,7 @@
           buttonElement.addEventListener('click', () => {
             console.log('click2');
           });
+          */
             /*
             function greeting() {
                 console.log("hello")
@@ -150,8 +152,47 @@
       };
       */
 
+      
+          // [1, -3, 5].filter((value, index) => {
+          // {/*
+          //   if (value >= 0) {
+          //     return true;
+          //   } else {
+          //   return false;
+          //   } 
+          //   */
+          //   return value >= 0;
+          // }});
+          
 
+          // [1, 1, 3].map((value, index) => {
+          //   return value + 10;
+          // });
 
+          // [1, 1, 3].map(value => value * 2 );
+          
+
+        //   const multiply = (number1, number2) => {
+        //     return number1 * number2;
+        //   };
+
+        //   const multiply2 = (number1, number2) => number1 * number2;
+          
+
+        //  console.log(multiply2(2, 3));
+
+        let count = 0;
+        const countPositive = (value) => {
+
+          value.forEach(num => {
+            if (num >= 0) {
+            count++;
+          } });
+          return count;
+          
+          
+        };
+        console.log(countPositive([1, -3, 5]));
         </script>
     </body>
 </html>
