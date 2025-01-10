@@ -29,9 +29,12 @@ function autoPlay() {
     const playerMove = pickComputerMove();
     playGame(playerMove);
   }, 1000);
-  isAutoPlaying = true; 
+  isAutoPlaying = true;
+  document.querySelector('.js-autoplay-button').innerHTML = 'Stop Playing';
+ 
   
   } else {
+    document.querySelector('.js-autoplay-button').innerHTML = 'Auto Play!';
     clearInterval(intervalId);
     isAutoPlaying = false;
   }
@@ -57,15 +60,66 @@ document.querySelector('.js-autoplay-button')
     autoPlay();
   });
 
-  document.body.addEventListener('keydown', (event) => {
+document.body.addEventListener('keydown', (event) => {
     if (event.key === 'r') {
       playGame('rock');
     } else if (event.key === 'p') {
       playGame('paper');
     } else if (event.key === 's') {
       playGame('scissors');
+    } else if (event.key === 'a') {
+      autoPlay();
+    } else if (event.key === 'Backspace') {
+      showResetConfirmation();
     }
   });
+
+  document.querySelector('.reset-score-button')
+  .addEventListener('click', () => {
+    showResetConfirmation();
+  });
+
+  function showResetConfirmation() {
+    document.querySelector('.js-reset-confirmation')
+      .innerHTML = `
+        Are you sure you want to reset the score?
+        <button class="js-reset-confirm-yes reset-confirm-button">
+          Yes
+        </button>
+        <button class="js-reset-confirm-no reset-confirm-button">
+          No
+        </button>
+      `;
+    
+
+    document.querySelector('.js-reset-confirm-yes')
+      .addEventListener('click', () => {
+        resetScore();
+        hideResetConfirmation();
+      });
+    
+    document.querySelector('.js-reset-confirm-no')
+      .addEventListener('click', () => {
+        hideResetConfirmation();
+      });
+  }
+  
+
+  function hideResetConfirmation() {
+    document.querySelector('.js-reset-confirmation')
+      .innerHTML = '';
+  }
+
+function resetScore() { 
+          score.wins = 0;
+          score.losses = 0; 
+          score.ties = 0;
+          localStorage.removeItem('score');
+
+          alert(`The score has been reset.
+Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
+updateScoreElement();
+  };
 
 function playGame(playerMove) {
   const computerMove = pickComputerMove();
@@ -107,6 +161,8 @@ function playGame(playerMove) {
   } else if (result === 'Tie.') {
     score.ties += 1;
   }
+
+
 
   localStorage.setItem('score', JSON.stringify(score)); //saving the score to local storage in a string
 
