@@ -115,6 +115,10 @@
   margin-bottom: 5px;
 }
 
+.quantity-input {
+  width: 30px;
+}
+
 .product-quantity .link-primary {
   margin-left: 3px;
 }
