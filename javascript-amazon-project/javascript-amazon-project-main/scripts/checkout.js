@@ -2,6 +2,11 @@ import { cart, removeFromCart, calculateCartQuantity, updateQuantity } from '../
 import { products } from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 
+hello();
+
+const today = dayjs();
+const deliveryDate = today.add(7, 'days');
+console.log(deliveryDate.format('dddd, MMMM, D'));
 
 let cartSummaryHTML = '';
 
@@ -42,7 +47,7 @@ js-cart-item-container-${matchingProduct.id}">
             Update
             </span>
             <input class="quantity-input js-quantity-input-${matchingProduct.id}">
-  <span class="save-quantity-link link-primary js-save-link"
+            <span class="save-quantity-link link-primary js-save-link"
               data-product-id="${matchingProduct.id}">
               Save
             </span>
@@ -114,7 +119,7 @@ document.querySelectorAll('.js-delete-link')
             );
             
             container.remove();
-
+ 
             updateCartQuantity();
         });
     });
@@ -136,10 +141,10 @@ document.querySelectorAll('.js-update-link')
             const container = document.querySelector(
                 `.js-cart-item-container-${productId}`
               );
-              container.classList.add('is-editing-quantity');        });
+            container.classList.add('is-editing-quantity');        });
     });
 
-    document.querySelectorAll('.js-save-link')
+document.querySelectorAll('.js-save-link')
   .forEach((link) => {
     link.addEventListener('click', () => {
       const productId = link.dataset.productId;
@@ -154,6 +159,7 @@ document.querySelectorAll('.js-update-link')
         return;
       }
       updateQuantity(productId, newQuantity);
+
       const container = document.querySelector(
         `.js-cart-item-container-${productId}`
       );
