@@ -27,3 +27,5 @@ export function getDeliveryOption (deliveryOptionId) {
       });
     return deliveryOption || deliveryOptions[0]; //burada eğer yoksa default option olarak ilk elemanı almasını söyledik.
 }
+
+

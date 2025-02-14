@@ -1,4 +1,3 @@
-import { cart } from "./cart.js";
 
 export function getProduct (productId) {
   let matchingProduct;
