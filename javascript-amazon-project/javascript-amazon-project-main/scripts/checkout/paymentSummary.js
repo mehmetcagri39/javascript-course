@@ -1,4 +1,4 @@
-import { cart } from "../../data/cart.js";
+import { calculateCartQuantity, cart } from "../../data/cart.js";
 import { getDeliveryOption } from "../../data/deliveryOptions.js";
 import { getProduct } from "../../data/products.js";
 import { formatCurrency } from '../utils/money.js';
@@ -20,6 +20,12 @@ export function renderPaymentSummary() {
   const taxCents = totalBeforeTaxCents * 0.1;
   const totalCents = totalBeforeTaxCents + taxCents;
 
+  let cartQuantity = 0;
+
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
+
   //2 generate the html (View)
   const paymentSummaryHTML = `
     <div class="payment-summary-title">
@@ -27,7 +33,8 @@ export function renderPaymentSummary() {
     </div>
 
     <div class="payment-summary-row">
-        <div>Items (3):</div>
+        <div class="js-order-summary-quantity">Items (${calculateCartQuantity()}):
+</div>
         <div class="payment-summary-money">
             $${formatCurrency(productPriceCents)}
         </div>
@@ -67,10 +74,10 @@ export function renderPaymentSummary() {
   `;
 
   document.querySelector('.js-payment-summary')
-    .innerHTML = paymentSummaryHTML;
-
-
-  //3 make it interactive (Controller - place order button)
-
-
+    .innerHTML = paymentSummaryHTML;  
+    
+    
+    //3 make it interactive (Controller - place order button)
+    
+    
 }
