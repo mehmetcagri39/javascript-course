@@ -1,16 +1,16 @@
 class Car {
-    brand;
-    model;
+    #brand;
+    #model;
     speed;
     isTrunkOpen = false;
     constructor(carDetails) {
-        this.brand = carDetails.brand;
-        this.model = carDetails.model;
+        this.#brand = carDetails.brand;
+        this.#model = carDetails.model;
         this.speed = 0;
     };
 
     displayInfo() {
-        console.log(`${this.brand} ${this.model} Speed = ${this.speed} km/h - Bagaj açık mı = ${this.isTrunkOpen}`);
+        console.log(`${this.#brand} ${this.#model} Speed = ${this.speed} km/h - Bagaj açık mı = ${this.isTrunkOpen}`);
     };
 
     go() {

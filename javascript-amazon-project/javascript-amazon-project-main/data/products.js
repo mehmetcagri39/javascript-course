@@ -27,6 +27,8 @@ class Product {
     this.priceCents = productDetails.priceCents;
   }
 
+  
+
   getStarsUrl() {
     return `images/ratings/rating-${this.rating.stars * 10}.png`;
   }
@@ -39,6 +41,21 @@ class Product {
     return '';
   }
 }
+
+class Appliance extends Product {
+  instructionsLink;
+  warrantyLink;
+  constructor(productDetails) {
+    super(productDetails);
+    this.instructionsLink = productDetails.instructionsLink;
+    this.warrantyLink = productDetails.warrantyLink;    
+  }
+  extraInfoHTML() {
+    return `
+      <a href="${this.instructionsLink}" target="_blank">Instructions</a>
+      <a href="${this.warrantyLink}" target="_blank">Warranty</a>
+    `}
+};
 
 
 class Clothing extends Product {
@@ -140,6 +157,9 @@ export const products = [
     id: "54e0eccd-8f36-462b-b68a-8182611d9add",
     image: "images/products/black-2-slot-toaster.jpg",
     name: "2 Slot Toaster - Black",
+    type: "appliance",
+    instructionsLink:"images/appliance-instructions.png",
+    warrantyLink:"images/appliance-warranty.png",
     rating: {
       stars: 5,
       count: 2197
@@ -752,5 +772,9 @@ export const products = [
   if (productDetails.type === 'clothing') {
     return new Clothing(productDetails);
   }
+  else if (productDetails.type === 'appliance') {
+    return new Appliance(productDetails);
+  }else{
   return new Product(productDetails);
+  }
 });
