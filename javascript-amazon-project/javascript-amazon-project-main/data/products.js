@@ -108,7 +108,7 @@ object3.method();
 
 export let products = [];
 
-function loadProductsFetch() { //by default fetch will make a get request
+export function loadProductsFetch() { //by default fetch will make a get request
   const promise = fetch(
     'https://supersimplebackend.dev/products')
   .then((response) => {
@@ -131,10 +131,11 @@ function loadProductsFetch() { //by default fetch will make a get request
 
   return promise;
 }
+/*
 loadProductsFetch().then(() => {
   console.log('next step');
 });
-
+*/
 export function loadProducts(fun) {
   const xhr = new XMLHttpRequest();
 
